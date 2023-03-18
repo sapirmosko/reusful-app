@@ -1,0 +1,25 @@
+services:
+  reusful-app:
+    image: reusful-app
+    build: ./yad2-app
+    ports:
+      - 3000:3000
+    volumes:
+      - ./reusful:/yad2-app
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+
+  reusful-server:
+    image: reusful-server
+    ports:
+      - 4000:4000
+    build: ./yad2-server
+
+  reusful-db:
+    image: reusful-db
+    ports:
+      - 3307:3306
+    build: ./yad2-db
+    environment:
+      MYSQL_ROOT_PASSWORD: 97649Bb97649Bb
+      MYSQL_DATABASE: yad2
