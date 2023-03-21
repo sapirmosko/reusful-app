@@ -3,7 +3,7 @@ import useWebSocket, { ReadyState } from 'react-use-websocket';
 
 function UserCount() {
   const [userCount, setUserCount] = useState(0);
-  const socketUrl = 'ws://localhost:4200';
+  const socketUrl = 'ws://localhost:4000';
   const { sendJsonMessage, readyState } = useWebSocket(socketUrl, {
     onMessage: (event: MessageEvent) => {
       const data = JSON.parse(event.data);
