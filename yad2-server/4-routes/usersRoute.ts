@@ -23,7 +23,7 @@ UserRoute.get("/users", (req, res) => {
 UserRoute.get("/users/:id", async (req, res) => {
   const id = req.params.id;
   try {
-    const response = await getUserById(+id);
+    const response = await getUserById(id);
     res.status(200).json(response);
   } catch (e) {
     res.status(400).json(e);

@@ -6,10 +6,13 @@ import { ProductsRoute } from "./4-routes/productsRoute";
 import { CartRoute } from "./4-routes/cartRoute";
 import { MessagesRoute } from "./4-routes/messagesRoute";
 import { initializeApp } from "firebase/app";
+import { getStorage } from "firebase/storage";
 import * as dotenv from "dotenv";
 import { configFirebase } from "./1-dal/firebase-config";
 import mongoose from "mongoose";
 initializeApp(configFirebase.firebaseConfig);
+// Create a root reference
+export const storage = getStorage();
 
 dotenv.config();
 
