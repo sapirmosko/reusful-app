@@ -27,4 +27,4 @@ const userSchema = new Schema<UserInterface>({
   streetAddress: String,
 });
 
-export const User = model<UserInterface>("User", userSchema);
+export const User = model<UserInterface>("user", userSchema);

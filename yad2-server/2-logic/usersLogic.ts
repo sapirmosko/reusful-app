@@ -1,8 +1,9 @@
 import { OkPacket } from "mysql2";
 import { execute } from "../1-dal/dal";
-import { UserInterface } from "../models/userModel";
+import { UserInterface, User } from "../models/userModel";
 import { saveImagesToS3User } from "./awsLogic";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { hashedPassword } from "../1-dal/hashedPassword";
 
 const uniqid = require("uniqid");
 
@@ -26,8 +27,27 @@ export async function register(user: UserInterface) {
     user.password
   );
   if (userCreated.user != null) {
-    console.log("SUCCESS");
-    return await userCreated.user.getIdToken(true);
+    const newUser = new User({
+      _id: userCreated.user.uid,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      username: user.username,
+      email: user.email,
+      password: hashedPassword(user.password),
+      userImage: user.userImage,
+      country: user.country,
+      city: user.city,
+      streetAddress: user.streetAddress,
+    });
+    newUser
+      .save()
+      .then(async (result) => {
+        console.log("SUCCESS");
+        return await userCreated.user.getIdToken(true);
+      })
+      .catch(async (error) => {
+        getAuth().currentUser?.delete();
+      });
   } else {
     console.log("fail");
   }

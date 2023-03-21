@@ -19,9 +19,9 @@ const productSchema = new Schema<ProductInterface>({
   productStatus: { type: String, required: true },
   productDate: Date,
   productImage: String,
-  category: { type: Schema.Types.ObjectId, ref: "Category" },
-  user: { type: Schema.Types.ObjectId, ref: "User" },
+  category: { type: Schema.Types.ObjectId, ref: "category" },
+  user: { type: Schema.Types.ObjectId, ref: "user" },
   imageUrl: String,
 });
 
-export const Product = model<ProductInterface>("Product", productSchema);
+export const Product = model<ProductInterface>("product", productSchema);
