@@ -1,0 +1,67 @@
+[{
+  "_id": {
+    "$oid": "641a04a73050bc3488c568e8"
+  },
+  "categorieName": "Clothing and Accessories",
+  "categorieImage": "https://firebasestorage.googleapis.com/v0/b/yad2-57514.appspot.com/o/Clothing%20and%20Accessories.png?alt=media&token=201996f1-8f89-4fab-bd49-3bf00e41cc8f"
+},{
+  "_id": {
+    "$oid": "641a0a3b3050bc3488c568f5"
+  },
+  "categorieName": "Beauty and Personal Care",
+  "categorieImage": "https://firebasestorage.googleapis.com/v0/b/yad2-57514.appspot.com/o/Beauty%20and%20Personal%20Care.png?alt=media&token=4a35928a-0d28-4281-98b3-e9dc9e1b10d6"
+},{
+  "_id": {
+    "$oid": "641a0a713050bc3488c568f6"
+  },
+  "categorieName": "Books and Media",
+  "categorieImage": "https://firebasestorage.googleapis.com/v0/b/yad2-57514.appspot.com/o/Books%20and%20Media.png?alt=media&token=cee9bf49-de3d-4edd-91f5-390fc1379f27"
+},{
+  "_id": {
+    "$oid": "641a0a7f3050bc3488c568f7"
+  },
+  "categorieName": "Collectibles and Antiques",
+  "categorieImage": "https://firebasestorage.googleapis.com/v0/b/yad2-57514.appspot.com/o/Collectibles%20and%20Antiques.png?alt=media&token=eb12842d-cd6e-4b49-87f7-24047748d8e7"
+},{
+  "_id": {
+    "$oid": "641a0a8c3050bc3488c568f8"
+  },
+  "categorieName": "Electronics",
+  "categorieImage": "https://firebasestorage.googleapis.com/v0/b/yad2-57514.appspot.com/o/Electronics.png?alt=media&token=22c53dd1-d9ee-4d66-80cc-43d3d05ab958"
+},{
+  "_id": {
+    "$oid": "641a0a993050bc3488c568f9"
+  },
+  "categorieName": "Furniture and Home Decor",
+  "categorieImage": "https://firebasestorage.googleapis.com/v0/b/yad2-57514.appspot.com/o/Furniture%20and%20Home%20Decor.png?alt=media&token=219bd3fe-601f-4473-acfd-c44db971a981"
+},{
+  "_id": {
+    "$oid": "641a0aa83050bc3488c568fa"
+  },
+  "categorieName": "Musical Instruments",
+  "categorieImage": "https://firebasestorage.googleapis.com/v0/b/yad2-57514.appspot.com/o/Musical%20Instruments.png?alt=media&token=14d51b8e-cb14-4551-8295-b93a5e133c87"
+},{
+  "_id": {
+    "$oid": "641a0ab53050bc3488c568fb"
+  },
+  "categorieName": "Outdoor and Gardening Equipment",
+  "categorieImage": "https://firebasestorage.googleapis.com/v0/b/yad2-57514.appspot.com/o/Outdoor%20and%20Gardening%20Equipment.png?alt=media&token=d0a0799c-4657-4386-a413-6f57396d09c9"
+},{
+  "_id": {
+    "$oid": "641a0abf3050bc3488c568fc"
+  },
+  "categorieName": "Sporting Goods",
+  "categorieImage": "https://firebasestorage.googleapis.com/v0/b/yad2-57514.appspot.com/o/Sporting%20Goods.png?alt=media&token=0722d1f0-68d3-4060-9e54-ff2ec3cce4f5"
+},{
+  "_id": {
+    "$oid": "641a0ac93050bc3488c568fd"
+  },
+  "categorieName": "Toys and Games",
+  "categorieImage": "https://firebasestorage.googleapis.com/v0/b/yad2-57514.appspot.com/o/Toys%20and%20Games.png?alt=media&token=310d3054-4c38-4be5-bffd-dbb74309f0f5"
+},{
+  "_id": {
+    "$oid": "641a0ad73050bc3488c568fe"
+  },
+  "categorieName": "Vehicles and Auto Parts",
+  "categorieImage": "https://firebasestorage.googleapis.com/v0/b/yad2-57514.appspot.com/o/Vehicles%20and%20Auto%20Parts.png?alt=media&token=a6f23698-b590-499c-a11e-fae8f82afe5d"
+}]
