@@ -1,14 +1,19 @@
-import mongoose from "mongoose";
+import { Types } from "mongoose";
 import { ProductInterface, Product } from "../models/productModel";
+import { saveImagesToStorage } from "./storageLogic";
 
 const uniqid = require("uniqid");
 
-export async function getProductsByCategorie(id: number) {
-  const results = Product.find({ categorieId: id });
+export async function getProductsByCategorie(id: string) {
+  let objectID = new Types.ObjectId(id);
+  const results = Product.find({ categorieId: objectID });
   return results;
 }
 
 export async function addProduct(product: ProductInterface, file: any) {
+  const imageId = uniqid();
+  const url = await saveImagesToStorage(file, imageId);
+  product.imageUrl = url;
   let productToSave = new Product(product);
   let prod = await productToSave.save();
   console.log(prod);
@@ -16,8 +21,9 @@ export async function addProduct(product: ProductInterface, file: any) {
   return prod;
 }
 
-export async function getProductById(id: String) {
-  let product = await Product.findById(id);
+export async function getProductById(id: string) {
+  let objectId = new Types.ObjectId(id);
+  let product = await Product.findById(objectId);
   return product;
 }
 
@@ -26,7 +32,7 @@ export async function getProductByUserId(id: string) {
   return product;
 }
 
-export async function deleteProductById(product: ProductInterface, id: String) {
+export async function deleteProductById(product: ProductInterface, id: string) {
   // const { productImage } = product;
 
   // const qeuryImages = `SELECT * FROM productimages WHERE productId = ${id}`;
@@ -41,7 +47,8 @@ export async function deleteProductById(product: ProductInterface, id: String) {
   // const [results] = await execute<OkPacket>(query);
 
   // TODO : Delete Image
-  let productDelete = Product.findByIdAndDelete(id);
+  let objectId = new Types.ObjectId(id);
+  let productDelete = Product.findByIdAndDelete(objectId);
   return productDelete;
 }
 
