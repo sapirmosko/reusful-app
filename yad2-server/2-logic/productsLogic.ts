@@ -1,4 +1,5 @@
 import { Types } from "mongoose";
+import { ProductImage } from "../models/productImages";
 import { ProductInterface, Product } from "../models/productModel";
 import { saveImagesToStorage } from "./storageLogic";
 
@@ -52,24 +53,25 @@ export async function deleteProductById(product: ProductInterface, id: string) {
   return productDelete;
 }
 
-export async function addproductImages(files: any[], productId: any) {
+export async function addproductImages(files: any[], productId: string) {
   const resultsArray: any = [];
-  // files.forEach(async (file) => {
-  //   const imageId = "secondaryProductImages" + uniqid();
-  //   let key = await saveProductImagesToS3(file, imageId);
-  //   const query =
-  //     "INSERT INTO productimages(productId,productsImage) VALUES (?,?)";
-  //   const [results] = await execute<OkPacket>(query, [productId, key]);
-  //   resultsArray.push(results);
-  // });
+  let objectId = new Types.ObjectId(productId);
+  files.forEach(async (file) => {
+    const imageId = uniqid();
+    const url = await saveImagesToStorage(file, imageId);
+    let productImage = new ProductImage({ imageUrl: url, productId: objectId });
+    let savedProd = await productImage.save();
+    resultsArray.push(savedProd);
+  });
   return resultsArray;
 }
 
-export async function getProductImages(id: number) {
+export async function getProductImages(id: string) {
   // const query = `SELECT * FROM productimages WHERE productId = ${id}`;
   // const [results] = await execute(query);
-  const [results]: any = [];
-  return results;
+  let objectId = new Types.ObjectId(id);
+  let productImages = ProductImage.find({ productId: objectId });
+  return productImages;
 }
 
 export async function editProduct(product: ProductInterface, id: String) {
