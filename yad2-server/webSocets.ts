@@ -18,6 +18,6 @@ io.on('connection', (socket) => {
   });
 });
 
-httpServer.listen(4200, () => {
-  console.log('listening on *:3000');
+httpServer.listen(4000, () => {
+  console.log('listening on *:4000');
 });
