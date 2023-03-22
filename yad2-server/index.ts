@@ -31,7 +31,7 @@ server.use(CartRoute);
 server.use(MessagesRoute);
 
 mongoose
-  .connect("mongodb://localhost:27017/yad2")
+  .connect("mongodb://127.0.0.1:27017/yad2")
   .then(() => {
     console.log("mongo connection open!!");
   })
