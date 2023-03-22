@@ -1,4 +1,4 @@
-import { execute } from "../1-dal/dal";
+// import { execute } from "../1-dal/dal";
 import { UserInterface, User } from "../models/userModel";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { hashedPassword } from "../1-dal/hashedPassword";
