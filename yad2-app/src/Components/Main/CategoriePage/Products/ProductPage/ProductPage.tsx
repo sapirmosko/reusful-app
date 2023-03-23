@@ -31,16 +31,16 @@ function ProductPage(): JSX.Element {
   const [categories, setCategories] = useState<[]>([]);
 
   useEffect(() => {
-    try {
-      apiService
-        .getProductImages(String(id))
-        .then((res) => setProductImages1(res[0]));
-      apiService.getProductImages(String(id)).then((res) => {
-        setProductImages2(res[1]);
-      });
-    } catch (e) {
-      console.log(e);
-    }
+    // try {
+    //   apiService
+    //     .getProductImages(String(id))
+    //     .then((res) => setProductImages1(res[0]));
+    //   apiService.getProductImages(String(id)).then((res) => {
+    //     setProductImages2(res[1]);
+    //   });
+    // } catch (e) {
+    //   console.log(e);
+    // }
     apiService.getProduct(String(id)).then((p: any) => {
       setProduct(p);
       productPageFunctions.checkIfProductInCart(userId, productId, setInCart);
@@ -78,8 +78,6 @@ function ProductPage(): JSX.Element {
         <div className="ProductPageImage">
           <Carousel wrapAround={true}>
             <img src={`${product?.imageUrl}`} alt="" />
-            <img src={`${productImages1.imageUrl}`} alt="" />
-            <img src={`${productImages2.imageUrl}`} alt="" />
           </Carousel>
         </div>
 
