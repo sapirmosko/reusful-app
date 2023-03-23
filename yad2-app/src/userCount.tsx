@@ -4,7 +4,7 @@ import io from 'socket.io-client';
 const socket = io('http://localhost:3000');
 
 function UserCounte() {
-  const [userCount, setUserCount] = useState(0);
+  const [userCount, setUserCount] = useState(1);
 
   useEffect(() => {
     socket.on('userCount', (count: number) => {

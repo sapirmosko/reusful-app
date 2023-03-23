@@ -3,7 +3,7 @@ import { Product } from "../models/productModel";
 
 export async function getAllCategories() {
   let results = await Category.find();
-  console.log(results);
+  // console.log(results);
   return results;
 }
 
@@ -32,6 +32,6 @@ export async function getAmountOfProductsByCategories() {
       }
     });
   });
-  console.log(results);
+  // console.log(results);
   return results;
 }
