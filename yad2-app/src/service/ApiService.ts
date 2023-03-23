@@ -25,7 +25,7 @@ class ApiService {
     }
   }
 
-  async getUserById(id: number) {
+  async getUserById(id: string) {
     try {
       const res = await axios.get(`${BASE_URL}/users/${id}`);
       return res.data;
@@ -65,7 +65,7 @@ class ApiService {
 
   // products
 
-  async getProductsByCategorieId(id: number) {
+  async getProductsByCategorieId(id: string) {
     try {
       const res = await axios.get(`${BASE_URL}/products/${id}`);
       return res.data;
@@ -83,7 +83,7 @@ class ApiService {
     }
   }
 
-  async getProduct(id: number) {
+  async getProduct(id: string) {
     try {
       const res = await axios.get(`${BASE_URL}/products/single/${id}`);
       return res.data;
@@ -92,7 +92,7 @@ class ApiService {
     }
   }
 
-  async getProductsByUserId(id: number) {
+  async getProductsByUserId(id: string) {
     try {
       const res = await axios.get(`${BASE_URL}/products/userid/${id}`);
       return res.data;
@@ -101,7 +101,7 @@ class ApiService {
     }
   }
 
-  async deleteProductById(product: ProductInterface | undefined, id: number) {
+  async deleteProductById(product: ProductInterface | undefined, id: string) {
     try {
       const res = await axios.post(
         `${BASE_URL}/products/delete/${id}`,
@@ -113,7 +113,7 @@ class ApiService {
     }
   }
 
-  async addProductImages(formData: FormData, productId: number) {
+  async addProductImages(formData: FormData, productId: string) {
     try {
       const res = await axios.post(
         `${BASE_URL}/products/images/${productId}`,
@@ -125,7 +125,7 @@ class ApiService {
     }
   }
 
-  async getProductImages(id: number) {
+  async getProductImages(id: string) {
     try {
       const res = await axios.post(`${BASE_URL}/products/getimages/${id}`);
       return res.data;
@@ -134,7 +134,7 @@ class ApiService {
     }
   }
 
-  async editProduct(product: FormData, id: number) {
+  async editProduct(product: FormData, id: string) {
     try {
       const res = await axios.post(`${BASE_URL}/products/edit/${id}`, product);
       return res.data;
@@ -145,7 +145,7 @@ class ApiService {
 
   // cart
 
-  async addToCart(userId: number, productId: number) {
+  async addToCart(userId: string, productId: string) {
     const data: any = {
       userId: userId,
       productId: productId,
@@ -158,7 +158,7 @@ class ApiService {
     }
   }
 
-  async showCartProducts(userId: number) {
+  async showCartProducts(userId: string) {
     try {
       const res = await axios.get(`${BASE_URL}/cart/show/${userId}`);
       return res.data;
@@ -167,7 +167,7 @@ class ApiService {
     }
   }
 
-  async deleteFromCart(userId: number, productId: number) {
+  async deleteFromCart(userId: string, productId: string) {
     const data: any = {
       userId: userId,
       productId: productId,
@@ -180,7 +180,7 @@ class ApiService {
     }
   }
 
-  async checkIfProductInUserCart(userId: number, productId: number) {
+  async checkIfProductInUserCart(userId: string, productId: string) {
     const data: any = {
       userId: userId,
       productId: productId,

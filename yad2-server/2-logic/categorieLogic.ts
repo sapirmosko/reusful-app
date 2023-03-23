@@ -22,6 +22,16 @@ export async function getAmountOfProductsByCategories() {
   //     "SELECT COUNT(*) AS value, c.categorieName as name FROM categorie c JOIN products p ON p.categorieId = c.id WHERE p.productDate >= DATE(NOW()) GROUP BY c.id, c.categorieName;";
   //   const [results] = await execute(query);
   const results = await Product.aggregate().sortByCount("categorieId");
+  const categories = await getAllCategories();
+
+  results.forEach((row) => {
+    let categoryId = row._id;
+    categories.forEach((category) => {
+      if (categoryId == category.id) {
+        row["name"] = category.categorieName;
+      }
+    });
+  });
   console.log(results);
   return results;
 }

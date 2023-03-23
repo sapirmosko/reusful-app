@@ -12,6 +12,7 @@ import Carousel from "nuka-carousel";
 import MapComponent from "./Map/MapComponent";
 import Geocode from "react-geocode";
 import MapIcon from "@mui/icons-material/Map";
+import { addProductFunctions } from "../../../../../functions/addProductFunctions";
 
 function ProductPage(): JSX.Element {
   const navigate = useNavigate();
@@ -21,25 +22,26 @@ function ProductPage(): JSX.Element {
   const [inCart, setInCart] = useState<boolean>(false);
   const [productImages1, setProductImages1] = useState<any>([]);
   const [productImages2, setProductImages2] = useState<any>([]);
-  const productId = Number(id);
+  const productId = String(id);
   const [userId, setUserId] = useState(authSlice !== null ? authSlice.sub : 0);
   const [refreshProduct, setRefreshProduct] = useState<boolean>(false);
   const [lat, setLat] = useState<number>(0);
   const [lng, setLng] = useState<number>(0);
   const [showMap, setShowMap] = useState<boolean>(false);
+  const [categories, setCategories] = useState<[]>([]);
 
   useEffect(() => {
     try {
       apiService
-        .getProductImages(Number(id))
+        .getProductImages(String(id))
         .then((res) => setProductImages1(res[0]));
-      apiService
-        .getProductImages(Number(id))
-        .then((res) => setProductImages2(res[1]));
+      apiService.getProductImages(String(id)).then((res) => {
+        setProductImages2(res[1]);
+      });
     } catch (e) {
       console.log(e);
     }
-    apiService.getProduct(Number(id)).then((p: any) => {
+    apiService.getProduct(String(id)).then((p: any) => {
       setProduct(p);
       productPageFunctions.checkIfProductInCart(userId, productId, setInCart);
       apiService.getUserById(p.userId).then((res) => {
@@ -75,9 +77,9 @@ function ProductPage(): JSX.Element {
         </div>
         <div className="ProductPageImage">
           <Carousel wrapAround={true}>
-            <img src={`${product?.productImage}`} alt="" />
-            <img src={`${productImages1.productsImage}`} alt="" />
-            <img src={`${productImages2.productsImage}`} alt="" />
+            <img src={`${product?.imageUrl}`} alt="" />
+            <img src={`${productImages1.imageUrl}`} alt="" />
+            <img src={`${productImages2.imageUrl}`} alt="" />
           </Carousel>
         </div>
 
@@ -101,11 +103,6 @@ function ProductPage(): JSX.Element {
           ) : (
             <></>
           )}
-        </div>
-
-        <div className="ProductPageCategorieName">
-          <b>Categorie: </b>
-          <span>{product?.categorieName}</span>
         </div>
 
         <div className="ProductPageStatus">

@@ -10,7 +10,7 @@ const productImagesSchema = new Schema<ProductImagesInterface>({
   imageUrl: { type: String, required: true },
 });
 
-export const ProductImages = model<ProductImagesInterface>(
+export const ProductImage = model<ProductImagesInterface>(
   "productImages",
   productImagesSchema
 );

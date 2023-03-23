@@ -79,7 +79,7 @@ function Profile(): JSX.Element {
         </button>
         <div className="ProfileProducts">
           {products.map((p: ProductInterface) => (
-            <Product key={p.id} product={p} />
+            <Product key={p._id} product={p} />
           ))}
         </div>
       </div>
