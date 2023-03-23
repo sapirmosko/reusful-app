@@ -23,6 +23,7 @@ export async function register(user: UserInterface) {
     user.email,
     user.password
   );
+
   if (userCreated.user != null) {
     const newUser = new User({
       _id: userCreated.user.uid,
@@ -36,17 +37,21 @@ export async function register(user: UserInterface) {
       city: user.city,
       streetAddress: user.streetAddress,
     });
-    newUser
+    await newUser
       .save()
       .then(async (result) => {
         console.log("SUCCESS");
-        return await userCreated.user.getIdToken(true);
+        //let token = await userCreated.user.getIdToken(true);
+        return (userCreated as any)._tokenResponse.idToken;
       })
       .catch(async (error) => {
         getAuth().currentUser?.delete();
       });
   } else {
     console.log("fail");
+  }
+  if ((userCreated as any)._tokenResponse.idToken != null) {
+    return (userCreated as any)._tokenResponse.idToken;
   }
 }
 
