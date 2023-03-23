@@ -109,35 +109,35 @@ ProductsRoute.post("/products/edit/:id", async (req, res) => {
   }
 });
 
-ProductsRoute.get("/productsAddMany", async (req, res) => {
-  const response = await fetch(
-    "https://api.escuelajs.co/api/v1/products/?categoryId=5",
-    {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-      },
-    }
-  );
-  const result: any = await response.json();
-  for (let i = 0; 25; i++) {
-    let product = new Product({
-      productName: result[i].title,
-      productDescription: result[i].description,
-      productImage: result[i].images[0],
-      productPrice: result[i].price,
-      productStatus: "New",
-      productDate: new Date(),
-      categorieId: "641a0a3b3050bc3488c568f5",
-      userId: "3QP0YOByC2SHIO1C6hzR6aejBGw2",
-      imageUrl: result[i].images[0],
-    });
-    let prod = await product.save();
-  }
-  result.array.forEach(async (element: any) => {});
-  try {
-    res.status(200).json();
-  } catch (e) {
-    res.status(400).json(e);
-  }
-});
+// ProductsRoute.get("/productsAddMany", async (req, res) => {
+//   const response = await fetch(
+//     "https://api.escuelajs.co/api/v1/products/?categoryId=1",
+//     {
+//       method: "GET",
+//       headers: {
+//         Accept: "application/json",
+//       },
+//     }
+//   );
+//   const result: any = await response.json();
+//   for (let i = 0; 25; i++) {
+//     let product = new Product({
+//       productName: result[i].title,
+//       productDescription: result[i].description,
+//       productImage: result[i].images[0],
+//       productPrice: result[i].price,
+//       productStatus: "New",
+//       productDate: new Date(),
+//       categorieId: "641a0a3b3050bc3488c568f5",
+//       userId: "3QP0YOByC2SHIO1C6hzR6aejBGw2",
+//       imageUrl: result[i].images[0],
+//     });
+//     let prod = await product.save();
+//   }
+//   result.array.forEach(async (element: any) => {});
+//   try {
+//     res.status(200).json();
+//   } catch (e) {
+//     res.status(400).json(e);
+//   }
+// });
