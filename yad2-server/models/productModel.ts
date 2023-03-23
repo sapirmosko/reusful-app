@@ -7,9 +7,8 @@ export interface ProductInterface {
   productStatus: string;
   productDate: Date;
   productImage: string;
-  category: Types.ObjectId;
-  categorieId: number;
-  user: string;
+  categorieId: Types.ObjectId;
+  userId: string;
   imageUrl: string;
 }
 
@@ -20,9 +19,8 @@ const productSchema = new Schema<ProductInterface>({
   productStatus: { type: String, required: true },
   productDate: Date,
   productImage: String,
-  category: { type: Schema.Types.ObjectId, ref: "category" },
-  categorieId: Number,
-  user: { type: String, ref: "user" },
+  categorieId: { type: Schema.Types.ObjectId, ref: "category" },
+  userId: { type: String, ref: "user" },
   imageUrl: String,
 });
 

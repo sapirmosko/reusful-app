@@ -9,7 +9,7 @@ function Categorie({
 }): JSX.Element {
   return (
     <div className="Categorie">
-      <NavLink to={`/categorie/` + categorieName.id}>
+      <NavLink to={`/categorie/` + categorieName._id}>
         <div className="CategorieMain">
           <div className="CategorieImg">
             <img src={`${categorieName.categorieImage}`} alt="" />

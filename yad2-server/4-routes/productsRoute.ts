@@ -15,7 +15,7 @@ export const ProductsRoute = express.Router();
 ProductsRoute.get("/products/:id", async (req, res) => {
   const id = req.params.id;
   try {
-    const response = await getProductsByCategorie(+id);
+    const response = await getProductsByCategorie(id);
     // console.log(response);
 
     res.status(200).json(response);
@@ -38,7 +38,7 @@ ProductsRoute.post("/products/add", async (req: any, res: any) => {
   try {
     const body = req.body;
     const file = req.files;
-    const results = await addProduct(body, file);
+    const results = await addProduct(body, file.productImage);
     // console.log(body);
 
     res.status(200).json(results);
@@ -76,7 +76,7 @@ ProductsRoute.post("/products/images/:id", async (req: any, res) => {
   const files = req.files.productImage;
   const productId = req.params.id;
   try {
-    const response = await addproductImages(files, +productId);
+    const response = await addproductImages(files, productId);
     res.status(200).json(response);
   } catch (e) {
     res.status(400).json(e);
@@ -86,7 +86,7 @@ ProductsRoute.post("/products/images/:id", async (req: any, res) => {
 ProductsRoute.post("/products/getimages/:id", async (req, res) => {
   const id = req.params.id;
   try {
-    const response = await getProductImages(+id);
+    const response = await getProductImages(id);
     res.status(200).json(response);
   } catch (e) {
     res.status(400).json(e);

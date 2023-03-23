@@ -1,5 +1,5 @@
-export interface CategoriesInterface{
-    id:number,
-    categorieName:string,
-    categorieImage:string
+export interface CategoriesInterface {
+  _id: string;
+  categorieName: string;
+  categorieImage: string;
 }
