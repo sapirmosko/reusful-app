@@ -79,7 +79,10 @@ class ProductPageFunctions {
       userId,
       productId
     );
-    if (Array.isArray(response) && response.length === 0) {
+    if (
+      response == null ||
+      (Array.isArray(response) && response.length === 0)
+    ) {
       setInCart(false);
     } else {
       setInCart(true);

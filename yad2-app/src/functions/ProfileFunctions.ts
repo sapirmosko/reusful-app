@@ -8,10 +8,14 @@ class ProfileFunctions {
     setProducts: any
   ) {
     if (!isCart) {
-      await apiService.getProductsByUserId(id).then((res) => setProducts(res));
+      await apiService.getProductsByUserId(id).then((res) => {
+        setProducts(res);
+      });
       setIsCart(!isCart);
     } else {
-      await apiService.showCartProducts(id).then((res) => setProducts(res));
+      await apiService.showCartProducts(id).then((res) => {
+        setProducts(res);
+      });
       setIsCart(!isCart);
     }
   }

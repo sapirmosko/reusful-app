@@ -29,7 +29,7 @@ export async function getProductById(id: string) {
 }
 
 export async function getProductByUserId(id: string) {
-  let product = await Product.find({ user: id });
+  let product = await Product.find({ userId: id });
   return product;
 }
 
